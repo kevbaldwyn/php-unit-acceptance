@@ -12,5 +12,8 @@
         "php": ">=5.3.0",
         "instaclick/php-webdriver": "dev-master"
     },
+    "autoload": {
+		"classmap": ["src/"]
+    },
     "minimum-stability": "dev"
 }
