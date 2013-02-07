@@ -8,15 +8,9 @@
             "email": "kevin@purepixel.co.uk"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/zeroem/php-webdriver.git"
-        }
-    ],
     "require": {
         "php": ">=5.3.0",
-        "element-34/webdriver": "dev-master"
+        "instaclick/php-webdriver": "dev-master"
     },
     "minimum-stability": "dev"
 }
