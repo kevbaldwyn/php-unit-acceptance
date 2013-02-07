@@ -1,7 +1,10 @@
 <?php
-require_once(__DIR__ . '/lib/php-webdriver-master/__init__.php');
 
-class acceptanceTestCase extends PHPUnit_Framework_TestCase {
+namespace KevBaldwyn\Testing;
+
+use WebDriver;
+
+class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
     /** 
      * @var WebDriverSession
@@ -45,21 +48,6 @@ class acceptanceTestCase extends PHPUnit_Framework_TestCase {
         $this->_session->close();
         unset($this->_session);
         parent::tearDown();
-    }
-    
-    
-    public function test_homepage_goes_to_blog() {
-        $this->_session->open('http://framework.debian.vmlocal/');
-        
-        $this->_session->element(
-            'id', 
-            'testLink'
-        )->click();
-        
-        $this->assertSame(
-            'http://framework.debian.vmlocal/blog/', 
-            $this->_session->url()
-        );
     }
     
 }
