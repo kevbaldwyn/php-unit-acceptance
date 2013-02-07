@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "zeroem/php-webdriver": "dev-master"
-    }
+        "element-34/webdriver": "dev-master"
+    },
+    "minimum-stability": "dev"
 }
