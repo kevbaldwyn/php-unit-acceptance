@@ -20,8 +20,8 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     /**
      * some fail status for creating screen shots on
      */
-	protected $failStatus = array(PHPUnit_Runner_BaseTestRunner::STATUS_ERROR,
-								  PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE);
+	protected $failStatus = array(\PHPUnit_Runner_BaseTestRunner::STATUS_ERROR,
+								  \PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE);
     
     /**
      * take a screen shot
