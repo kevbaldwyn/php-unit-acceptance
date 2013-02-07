@@ -34,7 +34,7 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
     public function setUp() {
         parent::setUp();
-        $web_driver = new WebDriver();
+        $web_driver = new WebDriver\WebDriver();
         $this->_session = $web_driver->session();
     }
 
