@@ -9,7 +9,7 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     /** 
      * @var WebDriverSession
      */
-    protected $_session;
+    protected $session;
     
     /**
      * @var path to the location of where the screen shots will be stored (relative to the location phpunit script is called)
@@ -27,7 +27,7 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
      * take a screen shot
      */
     protected function takeScreenshot($name = 'screenshot') {
-	    $imgData = base64_decode($this->_session->screenshot());
+	    $imgData = base64_decode($this->session->screenshot());
 	    mkdir($this->screenshotPath);
         file_put_contents($this->screenshotPath . date('Y-m-d.H.i.s') . '-'.$name.'.png', $imgData);
     }
@@ -35,7 +35,7 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     public function setUp() {
         parent::setUp();
         $web_driver = new WebDriver\WebDriver();
-        $this->_session = $web_driver->session();
+        $this->session = $web_driver->session();
     }
 
     public function tearDown() {
@@ -45,8 +45,8 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
 		    $this->takeScreenshot();
 		}
         
-        $this->_session->close();
-        unset($this->_session);
+        $this->session->close();
+        unset($this->session);
         parent::tearDown();
     }
     
