@@ -3,6 +3,7 @@
 namespace KevBaldwyn\Testing;
 
 use WebDriver;
+use WebDriverCapabilityType;
 
 class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
@@ -36,7 +37,8 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
     public function setUp() {
         parent::setUp();
-        $this->session = new WebDriver();
+        $this->session = new WebDriver('http://localhost:4444/wd/hub', 
+                                        array(WebDriverCapabilityType::BROWSER_NAME => 'firefox'));
     }
 
     public function tearDown() {
