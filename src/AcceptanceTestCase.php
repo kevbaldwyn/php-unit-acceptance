@@ -3,6 +3,7 @@
 namespace KevBaldwyn\Testing;
 
 use WebDriver;
+use WebDriverCapabilityType;
 
 class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
