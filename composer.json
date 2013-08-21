@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "facebook/php-webdriver": "dev-master"
+        "facebook/webdriver": "dev-master"
     },
     "autoload": {
 		"classmap": ["src/"]
