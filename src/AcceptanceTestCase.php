@@ -3,7 +3,6 @@
 namespace KevBaldwyn\Testing;
 
 use WebDriver;
-use WebDriverCapabilityType;
 
 class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     
@@ -28,15 +27,16 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
      * take a screen shot
      */
     protected function takeScreenshot($name = 'screenshot') {
-        $imgData = base64_decode($this->session->screenshot());
-        mkdir($this->screenshotPath);
+        $imgData = base64_decode($this->session->takeScreenshot());
+        if(!file_exists($this->screenshotPath)) {
+            mkdir($this->screenshotPath);
+        }
         file_put_contents($this->screenshotPath . date('Y-m-d.H.i.s') . '-'.$name.'.png', $imgData);
     }
     
     public function setUp() {
         parent::setUp();
-        $web_driver = new WebDriver(array(WebDriverCapabilityType::BROWSER_NAME => 'firefox'));
-        $this->session = $web_driver->session();
+        $this->session = new WebDriver();
     }
 
     public function tearDown() {
