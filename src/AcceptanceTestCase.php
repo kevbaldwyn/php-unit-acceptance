@@ -28,7 +28,7 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
      * take a screen shot
      */
     protected function takeScreenshot($name = 'screenshot') {
-        $imgData = base64_decode($this->session->takeScreenshot());
+        $imgData = $this->session->takeScreenshot();
         if(!file_exists($this->screenshotPath)) {
             mkdir($this->screenshotPath);
         }
