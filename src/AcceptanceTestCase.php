@@ -20,30 +20,30 @@ class AcceptanceTestCase extends \PHPUnit_Framework_TestCase {
     /**
      * some fail status for creating screen shots on
      */
-	protected $failStatus = array(\PHPUnit_Runner_BaseTestRunner::STATUS_ERROR,
-								  \PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE);
+    protected $failStatus = array(\PHPUnit_Runner_BaseTestRunner::STATUS_ERROR,
+                                  \PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE);
     
     /**
      * take a screen shot
      */
     protected function takeScreenshot($name = 'screenshot') {
-	    $imgData = base64_decode($this->session->screenshot());
-	    mkdir($this->screenshotPath);
+        $imgData = base64_decode($this->session->screenshot());
+        mkdir($this->screenshotPath);
         file_put_contents($this->screenshotPath . date('Y-m-d.H.i.s') . '-'.$name.'.png', $imgData);
     }
     
     public function setUp() {
         parent::setUp();
-        $web_driver = new WebDriver\WebDriver();
+        $web_driver = new WebDriver(array(WebDriverCapabilityType::BROWSER_NAME => 'firefox'));
         $this->session = $web_driver->session();
     }
 
     public function tearDown() {
-							
-		$status = $this->getStatus();
-		if (in_array($status, $this->failStatus)) {
-		    $this->takeScreenshot();
-		}
+                            
+        $status = $this->getStatus();
+        if (in_array($status, $this->failStatus)) {
+            $this->takeScreenshot();
+        }
         
         $this->session->close();
         unset($this->session);
